@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Universe 💕</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-pink: #1a0b0e;
+            --deep-rose: #2d1b24;
+            --hot-pink: #ff006e;
+            --soft-pink: #ff758f;
+            --light-pink: #ffb3c6;
+            --glass: rgba(255, 255, 255, 0.08);
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            overflow: hidden;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(255, 0, 110, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(255, 117, 143, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 40%, rgba(255, 179, 198, 0.1) 0%, transparent 40%),
+                linear-gradient(135deg, var(--dark-pink) 0%, #0f0508 50%, var(--deep-rose) 100%);
+            background-attachment: fixed;
+            cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23ff006e" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') 12 12, auto;
+        }
+
+        /* Animated Background Blobs */
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s infinite ease-in-out;
+            z-index: 0;
+        }
+        .blob-1 { width: 400px; height: 400px; background: var(--hot-pink); top: -100px; left: -100px; animation-delay: 0s; }
+        .blob-2 { width: 300px; height: 300px; background: var(--soft-pink); bottom: -50px; right: -50px; animation-delay: 5s; }
+        .blob-3 { width: 250px; height: 250px; background: #ff4d6d; top: 50%; left: 50%; animation-delay: 10s; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        /* Glassmorphism with Pink Tint */
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        /* 3D Tilt */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+            transition: transform 0.1s ease-out;
+        }
+        .tilt-content { transform: translateZ(30px); }
+
+        /* Cursor Hearts */
+        .cursor-heart {
+            position: fixed;
+            pointer-events: none;
+            animation: floatUp 1.2s ease-out forwards;
+            z-index: 9999;
+            font-size: 24px;
+            text-shadow: 0 0 10px rgba(255, 0, 110, 0.8);
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120px) scale(0) rotate(360deg); opacity: 0; }
+        }
+
+        /* Particle Explosion */
+        .particle {
+            position: absolute;
+            pointer-events: none;
+            border-radius: 50%;
+            animation: explode 0.8s ease-out forwards;
+        }
+        @keyframes explode {
+            0% { transform: translate(0, 0) scale(1); opacity: 1; }
+            100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+        }
+
+        /* Floating Animation */
+        @keyframes gentle-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        .floating { animation: gentle-float 4s ease-in-out infinite; }
+
+        /* Pulse Glow */
+        @keyframes pink-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 110, 0.4), 0 0 40px rgba(255, 0, 110, 0.2); }
+            50% { box-shadow: 0 0 40px rgba(255, 0, 110, 0.8), 0 0 80px rgba(255, 0, 110, 0.4); }
+        }
+        .pink-glow { animation: pink-glow 2s infinite; }
+
+        /* Shake Animation for wrong code */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-10px); }
+            20%, 40%, 60%, 80% { transform: translateX(10px); }
+        }
+        .shake { animation: shake 0.5s ease-in-out; }
+
+        /* Typewriter */
+        .typing-cursor::after {
+            content: '❤';
+            animation: blink 1s infinite;
+            color: var(--hot-pink);
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+        /* Whack-a-Heart */
+        .mole-hole {
+            position: relative;
+            overflow: hidden;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, #3d1f2a 0%, #1a0b0e 100%);
+            box-shadow: inset 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .mole {
+            position: absolute;
+            bottom: -100%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: bottom 0.3s;
+            cursor: pointer;
+            font-size: 3rem;
+        }
+        .mole.up { bottom: 10%; }
+        .mole.hit { animation: bonk 0.3s; }
+        @keyframes bonk {
+            0% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(0.8) rotate(20deg); }
+            100% { transform: translateX(-50%) scale(1); }
+        }
+
+        /* Rhythm Game */
+        .rhythm-lane {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, transparent 0%, rgba(255,0,110,0.1) 100%);
+        }
+        .rhythm-note {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, var(--light-pink) 0%, var(--hot-pink) 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--hot-pink);
+            animation: fall 3s linear;
+        }
+        @keyframes fall {
+            from { top: -60px; }
+            to { top: 100%; }
+        }
+        .rhythm-target {
+            position: absolute;
+            bottom: 20px;
+            width: 80px;
+            height: 80px;
+            border: 4px solid var(--hot-pink);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 30px var(--hot-pink);
+        }
+        .rhythm-target.hit {
+            animation: target-pulse 0.2s;
+            background: rgba(255, 0, 110, 0.3);
+        }
+        @keyframes target-pulse {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.2); }
+        }
+
+        /* Scratch Card */
+        .scratch-container {
+            position: relative;
+            width: 300px;
+            height: 150px;
+            margin: 0 auto;
+        }
+        .scratch-cover {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #888 0%, #444 100%);
+            border-radius: 12px;
+            cursor: crosshair;
+        }
+        .scratch-prize {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background: linear-gradient(135deg, var(--hot-pink) 0%, var(--soft-pink) 100%);
+            border-radius: 12px;
+        }
+
+        /* Love Calculator */
+        .love-bar-container {
+            width: 100%;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        .love-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--hot-pink) 0%, var(--light-pink) 100%);
+            width: 0%;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .quiz-option {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .quiz-option:hover {
+            transform: translateX(10px);
+            border-color: var(--hot-pink);
+            background: rgba(255, 0, 110, 0.1);
+        }
+        .quiz-option.selected {
+            background: var(--hot-pink);
+            border-color: var(--hot-pink);
+        }
+
+        /* Secret Code Input */
+        .code-input {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+            letter-spacing: 0.5rem;
+            width: 300px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        .code-input:focus {
+            border-bottom-color: var(--hot-pink);
+            text-shadow: 0 0 20px rgba(255, 0, 110, 0.5);
+        }
+
+        /* Utility */
+        .hidden-screen { display: none !important; }
+        .fade-in { animation: fadeIn 0.6s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, var(--light-pink) 50%, var(--hot-pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Button Styles */
+        .btn-pink {
+            background: linear-gradient(135deg, var(--hot-pink) 0%, var(--soft-pink) 100%);
+            transition: all 0.3s ease;
+        }
+        .btn-pink:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 0, 110, 0.4);
+        }
+
+        /* Progress Bar */
+        .love-meter {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .love-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--hot-pink) 0%, var(--light-pink) 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+
+        /* Heart Beat Animation */
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+        }
+        .heart-beat { animation: heartbeat 1.5s infinite; }
+    </style>
+</head>
+<body class="text-white h-screen w-screen overflow-hidden relative">
+
+    <!-- Animated Background Blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- Floating Hearts Canvas -->
+    <canvas id="hearts-canvas" class="fixed inset-0 z-0 pointer-events-none"></canvas>
+
+    <!-- PHASE 1: ENCHANTED COUNTDOWN -->
+    <div id="phase-1" class="active-screen relative z-10 h-full flex items-center justify-center p-4">
+        <div class="tilt-card glass-panel p-8 md:p-16 rounded-3xl max-w-3xl w-full text-center floating pink-glow">
+            <div class="tilt-content">
+                <div class="mb-6 inline-block p-5 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 shadow-2xl">
+                    <i class="fas fa-infinity text-5xl text-white animate-spin" style="animation-duration: 8s;"></i>
+                </div>
+                <h2 class="text-5xl md:text-7xl font-bold mb-4 gradient-text" style="font-family: 'Dancing Script', cursive;">Waiting to Celebrate My Heart</h2>
+                <!--<p class="text-pink-200 text-lg mb-8"></p> -->
+                
+                <div class="grid grid-cols-4 gap-4 my-12">
+                    <div class="glass-panel rounded-2xl p-4 hover:scale-105 transition duration-300">
+                        <span id="days" class="block text-4xl md:text-6xl font-bold text-pink-400">00</span>
+                        <span class="text-xs uppercase tracking-widest text-pink-200">Days</span>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-4 hover:scale-105 transition duration-300">
+                        <span id="hours" class="block text-4xl md:text-6xl font-bold text-pink-400">00</span>
+                        <span class="text-xs uppercase tracking-widest text-pink-200">Hours</span>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-4 hover:scale-105 transition duration-300">
+                        <span id="minutes" class="block text-4xl md:text-6xl font-bold text-pink-400">00</span>
+                        <span class="text-xs uppercase tracking-widest text-pink-200">Minutes</span>
+                    </div>
+                    <div class="glass-panel rounded-2xl p-4 hover:scale-105 transition duration-300">
+                        <span id="seconds" class="block text-4xl md:text-6xl font-bold text-pink-400">00</span>
+                        <span class="text-xs uppercase tracking-widest text-pink-200">Seconds</span>
+                    </div>
+                </div>
+
+                <button onclick="showSecretCode()" class="group relative px-10 py-5 btn-pink rounded-full font-bold text-xl shadow-2xl overflow-hidden">
+                    <span class="relative z-10 flex items-center gap-3">
+                        I can't wait! <i class="fas fa-heart group-hover:animate-bounce"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECRET CODE PHASE -->
+    <div id="secret-code-phase" class="hidden-screen relative z-10 h-full flex items-center justify-center p-4">
+        <div class="glass-panel p-8 md:p-12 rounded-3xl max-w-xl w-full text-center pink-glow">
+            <div class="text-6xl mb-6">🔐</div>
+            <h2 class="text-4xl font-bold mb-4 gradient-text" style="font-family: 'Dancing Script', cursive;">Secret Access</h2>
+            <p class="text-pink-200 mb-8 text-lg">Enter our special code to unlock your surprise...</p>
+            
+            <div class="mb-8">
+                <input type="text" 
+                       id="secret-code-input" 
+                       class="code-input" 
+                       placeholder="••••" 
+                       maxlength="4"
+                       autocomplete="off">
+            </div>
+            
+            <div id="code-hint" class="text-pink-300/60 text-sm mb-6 italic opacity-0 transition-opacity">
+                Hint: The day we first met (MMDD)
+            </div>
+            
+            <button onclick="checkSecretCode()" class="btn-pink px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:scale-105 transition-transform">
+                Unlock <i class="fas fa-lock-open ml-2"></i>
+            </button>
+            
+            <p id="code-error" class="mt-4 text-red-400 font-bold opacity-0 transition-opacity">
+                <i class="fas fa-times-circle mr-2"></i>Wrong code! Try again...
+            </p>
+        </div>
+    </div>
+
+    <!-- PHASE 2: GAME LOBBY -->
+    <div id="phase-2" class="hidden-screen relative z-10 h-full overflow-y-auto py-8 px-4">
+        <div class="max-w-5xl mx-auto">
+            <!-- Progress Header -->
+            <div class="glass-panel rounded-2xl p-6 mb-8 flex items-center justify-between sticky top-4 z-50">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-2xl">
+                        💕
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">Love Quest Progress</h3>
+                        <div class="love-meter w-48 mt-1">
+                            <div id="love-progress" class="love-fill"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-pink-300">
+                    <span id="current-score">0</span>/5 Challenges
+                </div>
+            </div>
+
+            <!-- Challenge 1: Runaway Button -->
+            <div id="challenge-1" class="glass-panel rounded-3xl p-8 md:p-12 mb-8 text-center fade-in">
+                <div class="text-6xl mb-4">😈</div>
+                <h2 class="text-3xl font-bold mb-2 gradient-text">The Impossible Question</h2>
+                <p class="text-pink-200 mb-8">Did I really get the most beautiful girl in the world?</p>
+                
+                <div class="flex justify-center gap-8 relative h-32 items-center">
+                    <button onclick="completeChallenge(1, event)" class="btn-pink text-white font-bold py-4 px-10 rounded-full shadow-lg flex items-center gap-3 text-lg transform hover:scale-110 transition">
+                        <span>Yes, Obviously!</span> <i class="fas fa-heart"></i>
+                    </button>
+                    
+                    <button id="runaway-btn" class="bg-gray-700 text-gray-300 font-bold py-4 px-10 rounded-full shadow-lg absolute transition-all duration-200 border-2 border-gray-600">
+                        No <i class="fas fa-times ml-2"></i>
+                    </button>
+                </div>
+                 <!--  <p class="mt-4 text-sm text-pink-300/60 italic">*The "No" button is feeling shy today*</p> -->
+            </div>
+
+            <!-- Challenge 2: Love Calculator Quiz -->
+            <div id="challenge-2" class="hidden-screen glass-panel rounded-3xl p-8 mb-8 fade-in">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-2">💘</div>
+                    <h2 class="text-3xl font-bold gradient-text mb-2">Love Calculator</h2>
+                    <p class="text-pink-200">Answer these questions to reveal our compatibility!</p>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="mb-6">
+                    <div class="flex justify-between text-sm text-pink-300 mb-2">
+                        <span>Question <span id="quiz-current">1</span>/5</span>
+                        <span>Love Meter</span>
+                    </div>
+                    <div class="love-bar-container">
+                        <div class="love-bar-fill" id="love-percentage">0%</div>
+                    </div>
+                </div>
+
+                <!-- Quiz Container -->
+                <div id="quiz-container" class="min-h-[300px]">
+                    <!-- Questions injected by JS -->
+                </div>
+
+                <!-- Result Screen (Hidden initially) -->
+                <div id="quiz-result" class="hidden text-center py-8">
+                    <div class="text-6xl mb-4 heart-beat">💯</div>
+                    <h3 class="text-4xl font-bold gradient-text mb-4">We Are Soulmates!</h3>
+                    <p class="text-pink-200 text-lg mb-6">100% Match! ❤️</p>
+                    <button onclick="completeChallenge(2, event)" class="btn-pink px-10 py-4 rounded-full font-bold text-lg">
+                        Continue <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Challenge 3: Whack-a-Heart -->
+            <div id="challenge-3" class="hidden-screen glass-panel rounded-3xl p-8 mb-8 fade-in">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-2">🔨</div>
+                    <h2 class="text-3xl font-bold gradient-text mb-2">Catch My Love</h2>
+                    <p class="text-pink-200">Click the hearts as they pop up! Score 10 to continue.</p>
+                </div>
+                
+                <div class="text-center mb-4">
+                    <span class="text-4xl font-bold text-pink-400" id="whack-score">0</span>
+                    <span class="text-pink-300">/ 10</span>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 max-w-md mx-auto aspect-square">
+                    <div class="mole-hole h-24 w-24 mx-auto" data-hole="0"><div class="mole">💖</div></div>
+                    <div class="mole-hole h-24 w-24 mx-auto" data-hole="1"><div class="mole">💕</div></div>
+                    <div class="mole-hole h-24 w-24 mx-auto" data-hole="2"><div class="mole">💗</div></div>
+                    <div class="mole-hole h-24 w-24 mx-auto" data-hole="3"><div class="mole">💖</div></div>
+                    <div class="mole-hole h-24 w-24 mx-auto" data-hole="4"><div class="mole">💕</div></div>
+                    <div class="mole-hole h-24 w-24 mx-auto" data-hole="5"><div class="mole">💗</div></div>
+                    <div class="mole-hole h-24 w-24 mx-auto" data-hole="6"><div class="mole">💖</div></div>
+                    <div class="mole-hole h-24 w-24 mx-auto" data-hole="7"><div class="mole">💕</div></div>
+                    <div class="mole-hole h-24 w-24 mx-auto" data-hole="8"><div class="mole">💗</div></div>
+                </div>
+
+                <button id="start-whack" onclick="startWhackGame()" class="mt-6 btn-pink px-8 py-3 rounded-full font-bold mx-auto block">
+                    Start Game
+                </button>
+            </div>
+
+            <!-- Challenge 4: Love Rhythm -->
+            <div id="challenge-4" class="hidden-screen glass-panel rounded-3xl p-8 mb-8 fade-in">
+                <div class="text-center mb-6">
+                    <div class="text-5xl mb-2">🎵</div>
+                    <h2 class="text-3xl font-bold gradient-text mb-2">Our Love Song</h2>
+                    <p class="text-pink-200">Press SPACE or TAP when the hearts reach the circle!</p>
+                </div>
+
+                <div class="relative h-96 glass-panel rounded-2xl overflow-hidden mb-4" id="rhythm-game">
+                    <div class="absolute inset-0 flex justify-around px-8">
+                        <div class="rhythm-lane w-20 h-full relative" data-lane="0">
+                            <div class="rhythm-target left-1/2"></div>
+                        </div>
+                        <div class="rhythm-lane w-20 h-full relative" data-lane="1">
+                            <div class="rhythm-target left-1/2"></div>
+                        </div>
+                        <div class="rhythm-lane w-20 h-full relative" data-lane="2">
+                            <div class="rhythm-target left-1/2"></div>
+                        </div>
+                    </div>
+                    <div class="absolute top-4 left-4 text-2xl font-bold text-pink-400">
+                        Score: <span id="rhythm-score">0</span>/15
+                    </div>
+                </div>
+
+                <div class="flex justify-center gap-4">
+                    <button onclick="hitRhythm(0)" class="w-16 h-16 rounded-full bg-pink-500/30 border-2 border-pink-500 hover:bg-pink-500/50 transition text-2xl">A</button>
+                    <button onclick="hitRhythm(1)" class="w-16 h-16 rounded-full bg-pink-500/30 border-2 border-pink-500 hover:bg-pink-500/50 transition text-2xl">S</button>
+                    <button onclick="hitRhythm(2)" class="w-16 h-16 rounded-full bg-pink-500/30 border-2 border-pink-500 hover:bg-pink-500/50 transition text-2xl">D</button>
+                </div>
+                <p class="text-center mt-4 text-pink-300 text-sm">Or use A, S, D keys on your keyboard!</p>
+            </div>
+
+            <!-- Challenge 5: Scratch & Reveal -->
+            <div id="challenge-5" class="hidden-screen glass-panel rounded-3xl p-8 mb-8 fade-in text-center">
+                <div class="text-5xl mb-4">🎫</div>
+                <h2 class="text-3xl font-bold gradient-text mb-4">Your Surprise Awaits</h2>
+                <p class="text-pink-200 mb-6">Scratch to get your birthday Wish & Gift!</p>
+                
+                <div class="scratch-container">
+                    <div class="scratch-prize">
+                        <div class="text-center">
+                            <div class="text-4xl mb-2">🌹</div>
+                            <div class="text-white font-bold">Romantic Dinner +<br>Stargazing!</div>
+                        </div>
+                    </div>
+                    <canvas id="scratch-canvas" class="scratch-cover"></canvas>
+                </div>
+                
+                <p class="mt-4 text-sm text-pink-300/60">Scratch with your mouse or finger</p>
+                
+                <button onclick="finishGames()" class="mt-6 btn-pink px-10 py-4 rounded-full font-bold text-lg opacity-50 cursor-not-allowed" id="scratch-next" disabled>
+                    Continue to Final Message <i class="fas fa-lock ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHASE 3: GRAND FINALE -->
+    <div id="phase-3" class="hidden-screen relative z-10 h-full overflow-y-auto py-12 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Hero -->
+            <div class="text-center mb-12 fade-in">
+                <div class="inline-block p-8 rounded-full bg-gradient-to-br from-pink-500 via-rose-500 to-purple-600 mb-6 shadow-2xl animate-pulse">
+                    <i class="fas fa-heart text-7xl text-white"></i>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-bold mb-4 gradient-text" style="font-family: 'Pacifico', cursive;">Happy Birthday!</h1>
+                <div class="h-1 w-48 bg-gradient-to-r from-pink-500 to-purple-600 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Love Letter -->
+            <div class="glass-panel rounded-3xl p-8 md:p-12 mb-8 shadow-2xl">
+                <div class="prose prose-lg max-w-none">
+                    <p id="typewriter-text" class="text-xl md:text-2xl leading-relaxed text-pink-100 typing-cursor font-light"></p>
+                </div>
+                <div class="mt-8 text-right">
+                    <p class="text-pink-400 font-bold text-2xl" style="font-family: 'Dancing Script', cursive;">Forever Yours,</p>
+                    <p class="text-pink-300 text-lg">Your Love</p>
+                </div>
+            </div>
+
+            <!-- Interactive Photo Gallery 
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                <div class="aspect-square rounded-2xl glass-panel flex items-center justify-center text-5xl hover:scale-110 transition cursor-pointer group overflow-hidden">
+                    <span class="group-hover:scale-125 transition-transform">📸</span>
+                </div>
+                <div class="aspect-square rounded-2xl glass-panel flex items-center justify-center text-5xl hover:scale-110 transition cursor-pointer group">
+                    <span class="group-hover:scale-125 transition-transform">☕</span>
+                </div>
+                <div class="aspect-square rounded-2xl glass-panel flex items-center justify-center text-5xl hover:scale-110 transition cursor-pointer group">
+                    <span class="group-hover:scale-125 transition-transform">🌅</span>
+                </div>
+                <div class="aspect-square rounded-2xl glass-panel flex items-center justify-center text-5xl hover:scale-110 transition cursor-pointer group">
+                    <span class="group-hover:scale-125 transition-transform">✈️</span>
+                </div>
+            </div> -->
+
+            <!-- Final Gift -->
+            <div class="text-center pb-12">
+                <button onclick="revealFinalGift(event)" id="final-gift-btn" class="group relative inline-flex items-center gap-4 bg-gradient-to-r from-yellow-400 via-orange-500 to-pink-500 text-white font-bold py-5 px-12 rounded-full text-2xl shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-110 animate-bounce">
+                    <i class="fas fa-gift text-3xl group-hover:rotate-12 transition-transform"></i>
+                    <span>Claim Your Gift</span>
+                </button>
+                
+                <div id="final-reveal" class="hidden mt-8 glass-panel p-8 rounded-3xl border-2 border-yellow-400/50 fade-in">
+                    <h3 class="text-3xl font-bold text-yellow-400 mb-4">🎉 Surprise! 🎉</h3>
+                    <p class="text-xl mb-4">Sonu Akka will give you <br> my gift.</p>
+                    <div class="text-8xl mt-6 animate-bounce">💝</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Global Setup ---
+        let currentChallenge = 1;
+        let totalChallenges = 5;
+        let completedChallenges = 0;
+
+        // CHANGE THIS TO YOUR SECRET CODE!
+        const SECRET_CODE = '1050'; 
+
+        // Cursor Hearts
+        document.addEventListener('mousemove', (e) => {
+            if(Math.random() > 0.85) {
+                const heart = document.createElement('div');
+                heart.className = 'cursor-heart';
+                heart.innerHTML = ['💖', '💕', '💗', '💓', '💝', '💘'][Math.floor(Math.random() * 6)];
+                heart.style.left = e.clientX + 'px';
+                heart.style.top = e.clientY + 'px';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 1200);
+            }
+        });
+
+        // 3D Tilt
+        document.querySelectorAll('.tilt-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 25;
+                const rotateY = (centerX - x) / 25;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // Particles
+        function createParticles(x, y, color) {
+            for(let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.width = (Math.random() * 10 + 5) + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.backgroundColor = color;
+                const angle = (Math.PI * 2 * i) / 30;
+                const velocity = 80 + Math.random() * 80;
+                particle.style.setProperty('--tx', Math.cos(angle) * velocity + 'px');
+                particle.style.setProperty('--ty', Math.sin(angle) * velocity + 'px');
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 800);
+            }
+        }
+
+        // Countdown
+        const targetDate = new Date("March 6, 2026 00:00:00").getTime();
+        setInterval(() => {
+            const diff = targetDate - new Date().getTime();
+            document.getElementById("days").innerText = String(Math.floor(diff / 86400000)).padStart(2, '0');
+            document.getElementById("hours").innerText = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+        }, 1000);
+
+        // Secret Code Functions
+        function showSecretCode() {
+            document.getElementById('phase-1').classList.add('hidden-screen');
+            document.getElementById('secret-code-phase').classList.remove('hidden-screen');
+            document.getElementById('secret-code-input').focus();
+            
+            // Show hint after 10 seconds
+            setTimeout(() => {
+                document.getElementById('code-hint').style.opacity = '1';
+            }, 10000);
+        }
+
+        function checkSecretCode() {
+            const input = document.getElementById('secret-code-input').value;
+            const errorMsg = document.getElementById('code-error');
+            const container = document.querySelector('#secret-code-phase .glass-panel');
+            
+            if(input === SECRET_CODE) {
+                createParticles(window.innerWidth/2, window.innerHeight/2, '#ff006e');
+                document.getElementById('secret-code-phase').classList.add('hidden-screen');
+                document.getElementById('phase-2').classList.remove('hidden-screen');
+                initRunawayButton();
+            } else {
+                container.classList.add('shake');
+                errorMsg.style.opacity = '1';
+                setTimeout(() => {
+                    container.classList.remove('shake');
+                    errorMsg.style.opacity = '0';
+                }, 1500);
+            }
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('secret-code-input')?.addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') checkSecretCode();
+        });
+
+        function updateProgress() {
+            completedChallenges++;
+            document.getElementById('current-score').innerText = completedChallenges;
+            document.getElementById('love-progress').style.width = (completedChallenges / totalChallenges * 100) + '%';
+        }
+
+        function completeChallenge(num, e) {
+            if(e) createParticles(e.clientX, e.clientY, '#ff758f');
+            updateProgress();
+            document.getElementById('challenge-' + num).classList.add('hidden-screen');
+            document.getElementById('challenge-' + (num + 1)).classList.remove('hidden-screen');
+            
+            if(num === 1) initLoveCalculator();
+            if(num === 3) initRhythmGame();
+            if(num === 4) initScratchCard();
+        }
+
+        // Challenge 1: Runaway Button
+        function initRunawayButton() {
+            const btn = document.getElementById('runaway-btn');
+            const container = document.getElementById('challenge-1');
+            
+            btn.addEventListener('mouseover', () => {
+                const maxX = container.offsetWidth - btn.offsetWidth - 100;
+                const maxY = container.offsetHeight - btn.offsetHeight - 100;
+                const x = Math.random() * maxX - maxX/2;
+                const y = Math.random() * maxY - maxY/2;
+                btn.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        }
+
+        // Challenge 2: Love Calculator Quiz
+        const quizQuestions = [
+            {
+                question: "What was the exact moment you realized you liked me?",
+                options: [
+                    { text: "The first time I looked into your eyes", score: 20 },
+                    { text: "When we were playing that  school van game", score: 20 },
+                    { text: "When I started smiling for no reason around you", score: 20 },
+                    { text: "All of the above ❤️", score: 20 }
+                ]
+            },
+            {
+                question: "When did our love story secretly begin?",
+                options: [
+                    { text: "During our childhood games", score: 20 },
+                    { text: "When we drove the school van together 😂", score: 20 },
+                    { text: "When I started looking for you first", score: 20 },
+                    { text: "Before we even understood what love was", score: 20 }
+                ]
+            },
+            {
+                question: "What makes our love different from every other story in the world?",
+                options: [
+                    { text: "The way we understand each other without explaining", score: 20 },
+                    { text: "The way our story feels written by destiny ✨", score: 20 },
+                    { text: "The way we don’t have to pretend when I’m with you", score: 20 },
+                    { text: "All of them, ", score: 20 }
+                ]
+            },
+            {
+                question: "What was my favorite childhood game?",
+                options: [
+                    { text: "Hide and seek", score: 20 },
+                    { text: "නහය අස්සට බෝල දාලා පිබපු එක", score: 20 },
+                    { text: "Driving the school van with you 😌❤️", score: 20 },
+                    //{ text: "Anywhere, as long as we're together", score: 20 } 
+                ]
+            },
+            {
+                question: "If someone asked me what happiness looks like, what would I show them?",
+                options: [
+                    { text: "A picture of Angana ❤️", score: 20 },
+                    { text: "A picture of you ❤️", score: 20 },
+                    { text: "A picture of Angana ❤️", score: 20 },
+                    { text: "A picture of you ❤️", score: 20 }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let totalScore = 0;
+
+        function initLoveCalculator() {
+            currentQuestion = 0;
+            totalScore = 0;
+            document.getElementById('quiz-container').classList.remove('hidden');
+            document.getElementById('quiz-result').classList.add('hidden');
+            document.getElementById('love-percentage').style.width = '0%';
+            document.getElementById('love-percentage').innerText = '0%';
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const container = document.getElementById('quiz-container');
+            const q = quizQuestions[currentQuestion];
+            
+            container.innerHTML = `
+                <div class="fade-in">
+                    <h3 class="text-xl font-bold mb-6 text-center text-pink-100">${q.question}</h3>
+                    <div class="space-y-3">
+                        ${q.options.map((opt, idx) => `
+                            <button onclick="answerQuestion(${idx})" class="quiz-option w-full text-left p-4 rounded-xl bg-white/5 hover:bg-pink-500/20 transition-all duration-300 flex items-center gap-3 cursor-pointer">
+                                <span class="w-8 h-8 rounded-full bg-pink-500/30 flex items-center justify-center text-sm font-bold">${String.fromCharCode(65 + idx)}</span>
+                                <span>${opt.text}</span>
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('quiz-current').innerText = currentQuestion + 1;
+        }
+
+        function answerQuestion(optionIndex) {
+            const q = quizQuestions[currentQuestion];
+            totalScore += q.options[optionIndex].score;
+            
+            document.getElementById('love-percentage').style.width = totalScore + '%';
+            document.getElementById('love-percentage').innerText = totalScore + '%';
+            
+            const buttons = document.querySelectorAll('.quiz-option');
+            buttons[optionIndex].classList.add('selected');
+            
+            setTimeout(() => {
+                currentQuestion++;
+                if(currentQuestion < quizQuestions.length) {
+                    showQuestion();
+                } else {
+                    showQuizResult();
+                }
+            }, 600);
+        }
+
+        function showQuizResult() {
+            document.getElementById('quiz-container').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            
+            setTimeout(() => {
+                document.getElementById('love-percentage').style.width = '100%';
+                document.getElementById('love-percentage').innerText = '100%';
+            }, 100);
+        }
+
+        // Challenge 3: Whack-a-Heart
+        let whackScore = 0;
+        let whackActive = false;
+        let lastHole;
+
+        function startWhackGame() {
+            document.getElementById('start-whack').classList.add('hidden');
+            whackActive = true;
+            whackScore = 0;
+            document.getElementById('whack-score').innerText = '0';
+            
+            const holes = document.querySelectorAll('.mole');
+            holes.forEach(hole => {
+                hole.addEventListener('click', whack);
+            });
+            
+            peep();
+        }
+
+        function randomTime(min, max) {
+            return Math.round(Math.random() * (max - min) + min);
+        }
+
+        function randomHole(holes) {
+            const idx = Math.floor(Math.random() * holes.length);
+            const hole = holes[idx];
+            if(hole === lastHole) return randomHole(holes);
+            lastHole = hole;
+            return hole;
+        }
+
+        function peep() {
+            if(!whackActive) return;
+            const holes = document.querySelectorAll('.mole');
+            const hole = randomHole(holes);
+            const time = randomTime(600, 1200);
+            
+            hole.classList.add('up');
+            setTimeout(() => {
+                hole.classList.remove('up');
+                if(whackScore < 10) peep();
+            }, time);
+        }
+
+        function whack(e) {
+            if(!e.isTrusted) return;
+            whackScore++;
+            this.classList.remove('up');
+            this.classList.add('hit');
+            setTimeout(() => this.classList.remove('hit'), 300);
+            document.getElementById('whack-score').innerText = whackScore;
+            
+            if(whackScore >= 10) {
+                whackActive = false;
+                setTimeout(() => completeChallenge(3), 500);
+            }
+        }
+
+        // Challenge 4: Rhythm Game
+        let rhythmScore = 0;
+        let rhythmActive = false;
+        let rhythmNotes = [];
+
+        function initRhythmGame() {
+            rhythmActive = true;
+            spawnRhythmNote();
+            
+            document.addEventListener('keydown', (e) => {
+                if(e.key === 'a') hitRhythm(0);
+                if(e.key === 's') hitRhythm(1);
+                if(e.key === 'd') hitRhythm(2);
+            });
+        }
+
+        function spawnRhythmNote() {
+            if(!rhythmActive || rhythmScore >= 15) return;
+            
+            const lane = Math.floor(Math.random() * 3);
+            const note = document.createElement('div');
+            note.className = 'rhythm-note';
+            note.style.left = '10px';
+            note.dataset.lane = lane;
+            
+            const lanes = document.querySelectorAll('.rhythm-lane');
+            lanes[lane].appendChild(note);
+            rhythmNotes.push(note);
+            
+            setTimeout(() => {
+                if(note.parentNode) {
+                    note.remove();
+                    rhythmNotes = rhythmNotes.filter(n => n !== note);
+                }
+            }, 3000);
+            
+            setTimeout(spawnRhythmNote, 1000 + Math.random() * 1000);
+        }
+
+        function hitRhythm(lane) {
+            if(!rhythmActive) return;
+            
+            const targets = document.querySelectorAll('.rhythm-target');
+            targets[lane].classList.add('hit');
+            setTimeout(() => targets[lane].classList.remove('hit'), 200);
+            
+            const notes = document.querySelectorAll(`.rhythm-note[data-lane="${lane}"]`);
+            if(notes.length > 0) {
+                const note = notes[0];
+                const rect = note.getBoundingClientRect();
+                const targetRect = targets[lane].getBoundingClientRect();
+                
+                if(Math.abs(rect.top - targetRect.top) < 100) {
+                    rhythmScore++;
+                    document.getElementById('rhythm-score').innerText = rhythmScore;
+                    createParticles(targetRect.left + 40, targetRect.top, '#ff006e');
+                    note.remove();
+                    
+                    if(rhythmScore >= 15) {
+                        rhythmActive = false;
+                        setTimeout(() => completeChallenge(4), 500);
+                    }
+                }
+            }
+        }
+
+        // Challenge 5: Scratch Card
+        function initScratchCard() {
+            const canvas = document.getElementById('scratch-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = 300;
+            canvas.height = 150;
+            
+            ctx.fillStyle = '#888';
+            ctx.fillRect(0, 0, 300, 150);
+            
+            ctx.fillStyle = '#666';
+            for(let i = 0; i < 50; i++) {
+                ctx.fillRect(Math.random() * 300, Math.random() * 150, 4, 4);
+            }
+            
+            ctx.fillStyle = '#444';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('SCRATCH HERE', 150, 85);
+            
+            let isDrawing = false;
+            
+            function getMousePos(e) {
+                const rect = canvas.getBoundingClientRect();
+                return {
+                    x: (e.clientX || e.touches[0].clientX) - rect.left,
+                    y: (e.clientY || e.touches[0].clientY) - rect.top
+                };
+            }
+            
+            function scratch(e) {
+                if(!isDrawing) return;
+                e.preventDefault();
+                const pos = getMousePos(e);
+                
+                ctx.globalCompositeOperation = 'destination-out';
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, 20, 0, Math.PI * 2);
+                ctx.fill();
+                
+                const imageData = ctx.getImageData(0, 0, 300, 150);
+                const pixels = imageData.data;
+                let transparent = 0;
+                for(let i = 3; i < pixels.length; i += 4) {
+                    if(pixels[i] === 0) transparent++;
+                }
+                
+                if(transparent / (pixels.length / 4) > 0.4) {
+                    ctx.clearRect(0, 0, 300, 150);
+                    document.getElementById('scratch-next').disabled = false;
+                    document.getElementById('scratch-next').classList.remove('opacity-50', 'cursor-not-allowed');
+                    document.getElementById('scratch-next').innerHTML = 'Continue to Final Message <i class="fas fa-arrow-right ml-2"></i>';
+                }
+            }
+            
+            canvas.addEventListener('mousedown', () => isDrawing = true);
+            canvas.addEventListener('touchstart', () => isDrawing = true);
+            canvas.addEventListener('mousemove', scratch);
+            canvas.addEventListener('touchmove', scratch);
+            canvas.addEventListener('mouseup', () => isDrawing = false);
+            canvas.addEventListener('touchend', () => isDrawing = false);
+        }
+
+        function finishGames() {
+            document.getElementById('phase-2').classList.add('hidden-screen');
+            document.getElementById('phase-3').classList.remove('hidden-screen');
+            startTypewriter();
+        }
+
+        // Typewriter
+        const loveLetter =  `My Dearest Love, 
+
+
+From the moment I met you, my world transformed into something magical. Every day with you feels like a page from a fairy tale - one that I never want to end.
+
+You are my first thought in the morning, my last whisper at night. Your laughter is my favorite melody, your smile my greatest treasure. When I'm with you, time stands still, and when we're apart, every second feels like an eternity.
+
+අද ඔයාගේ දවස, මං ඔයාගේ Birthday එකකට ඉන්න පලවෙනි පාර , ඉතින් මේ ඔයාගේ හොදම Birthday එක කරන්න මං ගොඩක් Try කරනවා,
+මගේ මැණික හැමදාම සතුටෙන් හිනා වෙල ඉන්න ඕනේ, හිතේ තියෙන හැම බලාපොරොත්තුවක්ම ඉෂ්ඨ වෙන්න ඕනි, කිසි ප්‍රශ්නයක් නැතුව, ලෙඩක් දුකක් නැතුව නීරෝගීව ඉන්න ලැබෙන්න ඕනි. මගේ පණට මං ගෝඩාක් ආදරෙයි.
+
+අහ... තව දෙයක් , මගේ ජීවිතේ මට නොලැබුන දෙයක් තමා මට දැනෙන හරි ආදරයක්, ඒ දේ නැතුව වෙන මොනා තිබ්බත් මට වැඩක් නෑ, ඉතින් ඒ දේ දෙන එකම කෙනා ඔයා, ඔයාට විතරයි එක දෙන්නත් පුලුවන් , මං මෙච්චර කාලෙකට තේරුම් ගත්ත දේ එක. ඉතින් මට ඔයා එක්ක ගෙවෙන එක තප්පරයක් උනත් ගොඩාක් වටිනවා ❤️
+
+Thank you for being my partner, my best friend, my greatest adventure. Here's to countless more memories, endless laughter, and a love that grows stronger with every passing moment.
+
+Happy Birthday, my everything. 💕`; 
+
+        function startTypewriter() {
+            const element = document.getElementById('typewriter-text');
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if(i < loveLetter.length) {
+                    element.innerHTML += loveLetter.charAt(i);
+                    i++;
+                    setTimeout(type, 35);
+                }
+            }
+            type();
+        }
+
+        function revealFinalGift(e) {
+            createParticles(e.clientX, e.clientY, '#fbbf24');
+            document.getElementById('final-gift-btn').classList.add('hidden');
+            document.getElementById('final-reveal').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
